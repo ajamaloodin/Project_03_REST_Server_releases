@@ -74,13 +74,18 @@ const usersPatch = (req, res = response) => {
 
     const { id } = req.params;
 
+    const uid = req.uid;  
+
     //Borrado físico
     //const user = await User.findByIdAndDelete(id);
 
+    const authUser = req.authUser;
+    
     const user = await User.findByIdAndUpdate(id, {uStatus:false});
 
     res.json({
-        msg: `User ${id} has been marked deleted successfuly`
+        msg: `User ${id} has been marked deleted successfuly`,
+        uid
     });
   }
 

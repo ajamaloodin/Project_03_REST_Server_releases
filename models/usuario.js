@@ -35,7 +35,8 @@ const UserSchema = Schema({
 // Sobreescribe el metodo para que no se muestre el password y la version
 // y solo retorne el resto de los argumentos de la peticion
 UserSchema.methods.toJSON = function() {
-    const {__v, password, ...restOfThem} = this.toObject();
+    const {__v, password, _id, ...restOfThem} = this.toObject();
+    restOfThem.uid = _id;
     return restOfThem;
 }
 

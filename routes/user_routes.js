@@ -9,6 +9,9 @@ const { usersGet,
         usersPatch } = require('../controllers/user_controller');
 
 const validations = require('../middlewares/validations');
+const { validatejwt } = require('../middlewares/validate-jwt');
+const { isAdminRole, hasTheRole } = require('../middlewares/validate-roles');
+
 const { isAValidRole,
         emailExist,
         userExistByID } = require('../helpers/db-validators');
@@ -40,6 +43,9 @@ router.put('/:id', [
 router.patch('/', usersPatch);
 
 router.delete('/:id', [
+        validatejwt,
+        //isAdminRole,
+        hasTheRole('ADMIN', 'SELLS'),
         check('id', 'User Id is not valid').isMongoId(),
         check('id').custom( (id) => userExistByID(id) ),
         validations
