@@ -1,4 +1,4 @@
-# Basic functional Structure for a REST server
+# A Complete functional Structure for a REST server
 
 This is a functional (tested) structure for a REST server.
 
@@ -13,11 +13,12 @@ This is a functional (tested) structure for a REST server.
 2. Clone this repository:
 
    ```bash
-   git clone https://github.com/ajamaloodin/basic-REST-server.git
+   git clone https://github.com/ajamaloodin/Project_03_REST_Server_releases.git
+   
 
 3. Navigate to the project directory:
    ```bash
-   cd basic-REST-server
+   cd Project_03_REST_Server_releases
    
 4. Install dependencies:
    ```bash
